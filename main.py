@@ -1,8 +1,11 @@
 import os
 import json
 import modules.ui.menus as menu
+import modules.utils.console as u
+import modules.utils.coreFiles as cf
 
 def main():
+    cf.initialize_database()
     try:
         menu.mainMenu()
     except ValueError:

@@ -2,6 +2,38 @@ import os
 import json
 from typing import Dict, List, Optional
 
+def initialize_database():
+
+    initialize_json(
+        "data/medicamentos.json",
+        {"medicamentos": {}}
+    )
+
+    initialize_json(
+        "data/proveedores.json",
+        {"proveedores": {}}
+    )
+
+    initialize_json(
+        "data/pacientes.json",
+        {"pacientes": {}}
+    )
+
+    initialize_json(
+        "data/empleados.json",
+        {"empleados": {}}
+    )
+
+    initialize_json(
+        "data/ventas.json",
+        {"ventas": {}}
+    )
+
+    initialize_json(
+        "data/compras.json",
+        {"compras": {}}
+    )
+
 def read_json(file_path):
     if not os.path.exists(file_path) or os.path.getsize(file_path) == 0:
         return {}  # Devuelve dict vacío si el archivo no existe o está vacío
