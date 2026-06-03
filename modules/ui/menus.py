@@ -3,6 +3,10 @@ import modules.medications.medicines as m
 import modules.patients.patients as p
 import modules.employees.employees as em
 import modules.suppliers.suppliers as s
+import modules.sales.sales as sa
+import modules.purchase.purchase as pu
+import modules.reports.reports as re
+import modules.information.information as inf
 
 def mainMenu():
     
@@ -74,9 +78,9 @@ def menuMed():
                 case 5:
                     m.updateMedicine()
                 case 6:
-                    pass
+                    menuSales()
                 case 7:
-                    pass
+                    menuPurchase()    
                 case 0:
                     break
                 case _:
@@ -105,68 +109,11 @@ def menuInterc():
             menuInterc = int(input('Ingrese la opcion : '))
             match (menuInterc):
                 case 1:
-                    while True:
-                        u.borrar_pantalla()
-                        print('1. Agregar provedores\n2. Eliminar Proveedores\n3. Listar Proveedores\n4. Buscar Proveedores\n5. Modificar Proveedores\n0. Salir')
-                        opcionProve = int(input('Ingrese la opcion :'))
-                        match (opcionProve):
-                            case 1:
-                                s.addSuppliers()
-                            case 2:
-                                s.deleteSuppliers()
-                            case 3:
-                                s.listSuppliers()
-                            case 4:
-                                s.searchSuppliers()
-                            case 5:
-                                s.updateSuppliers()
-                            case 0:
-                                break
-                            case _:
-                                print('Te equivocaste')
-                                u.pausar_pantalla
+                    menuSuppliers()
                 case 2:
-                    while True:
-                        u.borrar_pantalla()
-                        print('1. Agregar Empleados\n2. Eliminar Empleados\n3. Listar Empleados\n4. Buscar Empleados\n5. Modificar Empleados\n0. Salir')
-                        opcionWorke = int(input('Ingrese la opcion :'))
-                        match (opcionWorke):
-                            case 1:
-                                em.addEMployees()
-                            case 2:
-                                em.deleteEmployees()
-                            case 3:
-                                em.listEmployees()
-                            case 4:
-                                em.searchEmployees()
-                            case 5:
-                                em.updateEmployees()
-                            case 0:
-                                break
-                            case _:
-                                print('Te equivocaste')
-                                u.pausar_pantalla
+                    menuEmployees()
                 case 3:
-                    while True:
-                        u.borrar_pantalla()
-                        print('1. Agregar pacientes\n2. Eliminar Pacientes\n3. Listar Pacientes\n4. Buscar Pacientes\n5. Modificar Empleados\n0. Salir')
-                        opcionPatie = int(input('Ingrese la opcion :'))
-                        match (opcionPatie):
-                            case 1:
-                                p.addPatients()
-                            case 2:
-                                p.deletePatients()
-                            case 3:
-                                p.listPatients()
-                            case 4:
-                                p.searchPatients()
-                            case 5:
-                                p.updatePatients()
-                            case 0:
-                                break
-                            case _:
-                                print('Te equivocaste')
-                                u.pausar_pantalla
+                    menuPatients()
                 case 0:
                     break
                 case _:
@@ -194,9 +141,9 @@ def menuInformes():
             menuInterc = int(input('Ingrese la opcion : '))
             match (menuInterc):
                 case 1:
-                    pass
+                    inf.salesReport()
                 case 2:
-                    pass
+                    inf.expirationReport()
                 case 0:
                     break
                 case _:
@@ -231,19 +178,19 @@ def menuReportes():
             menuReportes = int(input('Ingrese la opcion : '))
             match (menuReportes):
                 case 1:
-                    pass        
+                    re.stockLessThan50()
                 case 2:
-                    pass        
+                    re.providersContact()
                 case 3:
-                    pass        
+                    re.medicinesByProvider()
                 case 4:
-                    pass        
+                    pass
                 case 5:
-                    pass        
+                    re.totalSalesMedicine()        
                 case 6:
-                    pass        
+                    re.medicinesExpireBefore()
                 case 7:
-                    pass                
+                    re.totalSoldByProvider()
                 case 8:
                     while True:
                         u.borrar_pantalla()
@@ -261,19 +208,19 @@ def menuReportes():
                         sigueMenu = int(input('Ingrese la opcion : '))
                         match (sigueMenu):
                             case 1:
-                                pass        
+                                re.totalIncome()        
                             case 2:
-                                pass        
+                                re.medicinesNotSold()
                             case 3:
-                                pass        
+                                re.mostExpensiveMedicine() 
                             case 4:
-                                pass        
+                                re.medicineCountByProvider()
                             case 5:
-                                pass        
+                                re.patientsBoughtMedicine()
                             case 6:
-                                pass        
+                                re.inactiveProviders()
                             case 7:
-                                pass               
+                                re.salesMarch2023()
                             case 8:
                                 while True:
                                     u.borrar_pantalla()
@@ -291,19 +238,19 @@ def menuReportes():
                                     sigueMenu2 = int(input('Ingrese la opcion : '))
                                     match (sigueMenu2):
                                         case 1:
-                                            pass        
+                                            re.leastSoldMedicine()      
                                         case 2:
-                                            pass        
+                                            re.profitPerProvider2023() 
                                         case 3:
-                                            pass        
+                                            re.averageMedicinesPerSale()
                                         case 4:
-                                            pass        
+                                            re.salesPerEmployee2023()
                                         case 5:
-                                            pass        
+                                            re.medicinesExpire2024()
                                         case 6:
-                                            pass        
+                                            re.employeesMoreThan5Sales()
                                         case 7:
-                                            pass             
+                                            re.medicinesNeverSold()
                                         case 8:
                                             while True:
                                                 u.borrar_pantalla()
@@ -317,13 +264,13 @@ def menuReportes():
                                                 sigueMenu2 = int(input('Ingrese la opcion : '))
                                                 match (sigueMenu2):
                                                     case 1:
-                                                        pass        
+                                                        re.patientMostSpent2023()  
                                                     case 2:
-                                                        pass        
+                                                        re.employeesWithoutSales2023()
                                                     case 3:
-                                                        pass        
+                                                        re.topProvider2023()
                                                     case 4:
-                                                        pass        
+                                                        re.patientsBoughtMedicine2023()
                                                     case 0:
                                                         break        
                                                     case _:
@@ -349,3 +296,158 @@ def menuReportes():
         except KeyError as e:
             print(f"❌ Error: Falta la clave {e} en los datos del sistema.")
             u.pausar_pantalla()
+            
+def menuSales():
+    while True:
+        try:
+            u.borrar_pantalla()
+            print('1. agregar ventas\n2. Buscar Ventas\n3. Listar Ventas\n0. Salir ')
+            opciventas =int(input(':) '))
+            match (opciventas):
+                case 1:
+                    sa.addSale()               
+                case 2:
+                    sa.searchSale()        
+                case 3:
+                    sa.listSales()     
+                case 0:
+                    break               
+                case _:
+                    print('Te equivocaste') 
+                    u.pausar_pantalla() 
+                    
+        except KeyboardInterrupt:
+            print('Interrucion detectada')
+            u.pausar_pantalla()
+        except ValueError:
+            print("❌ Error: Ingresa un valor válido.")
+            u.pausar_pantalla()
+        except KeyError as e:
+            print(f"❌ Error: Falta la clave {e} en los datos del sistema.")
+            u.pausar_pantalla()
+
+def menuPurchase():
+    while True:
+        try:
+            u.borrar_pantalla()
+            print('1. agregar compra\n2. Buscar Compra\n3. Listar Compra\n0. Salir ')
+            opciventas =int(input(':) '))
+            match (opciventas):
+                case 1:
+                    pu.addPurchase()               
+                case 2:
+                    pu.searchPurchase()        
+                case 3:
+                    pu.listPurchases()     
+                case 0:
+                    break               
+                case _:
+                    print('Te equivocaste') 
+                    u.pausar_pantalla() 
+                    
+        except KeyboardInterrupt:
+            print('Interrucion detectada')
+            u.pausar_pantalla()
+        except ValueError:
+            print("❌ Error: Ingresa un valor válido.")
+            u.pausar_pantalla()
+        except KeyError as e:
+            print(f"❌ Error: Falta la clave {e} en los datos del sistema.")
+            u.pausar_pantalla()        
+        
+def menuSuppliers():
+    while True:
+        try:
+            u.borrar_pantalla()
+            print('1. Agregar provedores\n2. Eliminar Proveedores\n3. Listar Proveedores\n4. Buscar Proveedores\n5. Modificar Proveedores\n0. Salir')
+            opcionProve = int(input('Ingrese la opcion :'))
+            match (opcionProve):
+                case 1:
+                    s.addSuppliers()
+                case 2:
+                    s.deleteSuppliers()
+                case 3:
+                    s.listSuppliers()
+                case 4:
+                    s.searchSuppliers()
+                case 5:
+                    s.updateSuppliers()
+                case 0:
+                    break
+                case _:
+                    print('Te equivocaste')
+                    u.pausar_pantalla()
+                    
+        except KeyboardInterrupt:
+            print('Interrucion detectada')
+            u.pausar_pantalla()
+        except ValueError:
+            print("❌ Error: Ingresa un valor válido.")
+            u.pausar_pantalla()
+        except KeyError as e:
+            print(f"❌ Error: Falta la clave {e} en los datos del sistema.")
+            u.pausar_pantalla() 
+            
+def menuEmployees():
+    while True:
+        try:
+            u.borrar_pantalla()
+            print('1. Agregar Empleados\n2. Eliminar Empleados\n3. Listar Empleados\n4. Buscar Empleados\n5. Modificar Empleados\n0. Salir')
+            opcionWorke = int(input('Ingrese la opcion :'))
+            match (opcionWorke):
+                case 1:
+                    em.addEMployees()
+                case 2:
+                    em.deleteEmployees()
+                case 3:
+                    em.listEmployees()
+                case 4:
+                    em.searchEmployees()
+                case 5:
+                    em.updateEmployees()
+                case 0:
+                    break
+                case _:
+                    print('Te equivocaste')
+                    u.pausar_pantalla()
+        except KeyboardInterrupt:
+            print('Interrucion detectada')
+            u.pausar_pantalla()
+        except ValueError:
+            print("❌ Error: Ingresa un valor válido.")
+            u.pausar_pantalla()
+        except KeyError as e:
+            print(f"❌ Error: Falta la clave {e} en los datos del sistema.")
+            u.pausar_pantalla() 
+def menuPatients():
+    while True:
+        try:
+            u.borrar_pantalla()
+            print('1. Agregar pacientes\n2. Eliminar Pacientes\n3. Listar Pacientes\n4. Buscar Pacientes\n5. Modificar Empleados\n0. Salir')
+            opcionPatie = int(input('Ingrese la opcion :'))
+            match (opcionPatie):
+                case 1:
+                    p.addPatients()
+                case 2:
+                    p.deletePatients()
+                case 3:
+                    p.listPatients()
+                case 4:
+                    p.searchPatients()
+                case 5:
+                    p.updatePatients()
+                case 0:
+                    break
+                case _:
+                    print('Te equivocaste')
+                    u.pausar_pantalla()
+        
+        except KeyboardInterrupt:
+            print('Interrucion detectada')
+            u.pausar_pantalla()
+        except ValueError:
+            print("❌ Error: Ingresa un valor válido.")
+            u.pausar_pantalla()
+        except KeyError as e:
+            print(f"❌ Error: Falta la clave {e} en los datos del sistema.")
+            u.pausar_pantalla() 

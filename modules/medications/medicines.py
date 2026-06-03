@@ -2,30 +2,39 @@ import modules.utils.coreFiles as cf
 import modules.utils.console as u
 
 MEDICINAS = "data/medicamentos.json"
+PROVEEDORES = "data/proveedores.json"
 medicinas = {}
 
 def addMedicines():
     try:
         u.borrar_pantalla()
-        data = cf.read_json(MEDICINAS)
-        codigo = input("Ingrese el código del medicamento: ")
-        if codigo in data["medicamentos"]:
+        medicamentos = cf.read_json(MEDICINAS)
+        proveedores = cf.read_json(PROVEEDORES)
+        
+        idMedicamento = input("Ingrese el código del medicamento: ")
+        
+        if idMedicamento in medicamentos["medicamentos"]:
             print("Ese medicamento ya existe")
             u.pausar_pantalla()
             return
 
+        idProveedor = input('Ingrese el ID del proovedor : ')
+        if idProveedor not in proveedores["proveedores"]:
+            print('el proveedor no existe.')
         nombre = input('Ingrese el nombre del medicamento : ')
         precio = float(input('Ingrese el precio: '))
         stock = int(input('Ingrese el stock : '))
         fecha = input('Ingrese la fecha de caducidad : ')
-
-        data["medicamentos"][codigo] = {
+        
+        medicamentos["medicamentos"][idMedicamento] = {
             "nombre": nombre,
             "precio": precio,
             "stock": stock,
-            "fechaCadu": fecha
+            "fechaCadu": fecha,
+            "idProveedor": idProveedor
         }
-        cf.write_json(MEDICINAS, data)
+        
+        cf.write_json(MEDICINAS, medicamentos)
         print('Medicamento registrado correctamente')
         u.pausar_pantalla()    
         

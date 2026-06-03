@@ -1,4 +1,3 @@
-import os
 import json
 import modules.ui.menus as menu
 import modules.utils.console as u
