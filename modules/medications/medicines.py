@@ -24,7 +24,7 @@ def addMedicines():
         nombre = input('Ingrese el nombre del medicamento : ')
         precio = float(input('Ingrese el precio: '))
         stock = int(input('Ingrese el stock : '))
-        fecha = input('Ingrese la fecha de caducidad : ')
+        fecha = input('Ingrese la fecha de caducidad (AAAA/MM/DD): ')
         
         medicamentos["medicamentos"][idMedicamento] = {
             "nombre": nombre,
@@ -167,7 +167,7 @@ def updateMedicine():
             medicamento["stock"] = int(input("Nuevo stock: "))
 
         if input("¿Modificar fecha de caducidad? (S/N): ").upper() == "S":
-            medicamento["fechaCadu"] = input("Nueva fecha: ")
+            medicamento["fechaCadu"] = input("Nueva fecha (AAAA/MM/DD): ")
 
         cf.write_json(MEDICINAS, data)
 

@@ -28,7 +28,7 @@ def addPurchase():
 
         cantidad = int(input("Cantidad comprada: "))
         precioCompra = float(input("Precio de compra: "))
-        fecha = input("Fecha (AAAA-MM-DD): ")
+        fecha = input("Fecha (AAAA/MM/DD): ")
         compras["compras"][idCompra] = {
             "fecha": fecha,
             "idProveedor": idProveedor,

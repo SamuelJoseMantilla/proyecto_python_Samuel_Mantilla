@@ -15,7 +15,7 @@ def addEMployees():
 
         nombre = input("Ingrese el nombre del empleado : ")
         cargo = input("Ingrese el cargo : ")
-        fechaContrata = input("Ingrese la fecha de contratacion : ")
+        fechaContrata = input("Ingrese la fecha de contratacion (AAAA/MM/DD) : ")
 
         data["empleados"][codigo] = {
             "nombre": nombre,
@@ -145,7 +145,7 @@ def updateEmployees():
         if input("¿Modificar cargo? (S/N): ").upper() == "S":
             empleado["cargo"] = input("Nuevo cargo: ")
         if input("¿Modificar fecha de contratacion? (S/N): ").upper() == "S":
-            empleado["fechaContrata"] = input("Nueva fecha: ")
+            empleado["fechaContrata"] = input("Nueva fecha (AAAA/MM/DD): ")
         cf.write_json(EMPLEADOS, data)
 
         print('Empleado actualizado correctamente.')

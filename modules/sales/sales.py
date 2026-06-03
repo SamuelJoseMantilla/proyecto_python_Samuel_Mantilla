@@ -45,7 +45,7 @@ def addSale():
 
         precio = medicamentos["medicamentos"][idMedicamento]["precio"]
         total = precio * cantidad
-        fecha = input("Fecha (AAAA-MM-DD): ")
+        fecha = input("Fecha (AAAA/MM/DD): ")
         ventas["ventas"][idVenta] = {
             "fecha": fecha,
             "idPaciente": idPaciente,
